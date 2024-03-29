@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion admin</title>
+    <link rel="stylesheet" href="style/login.css">
+</head>
+<body>
+    <img src="img/logo suresnes 2.png" alt="logo suresnes">
+    <div class="connexion">
+        <h1>Espace connexion administrateur</h1>
+        <label for="pseudo">Nom d'identifiant</label>
+        <input type="text" name="pseudo">
+    
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password">
+    
+        <button type="button" onclick="login()">Se connecter</button>
+    </div>
+
+    <script>
+
+        const login = async () => {
+
+            let pseudo = document.querySelector('input[name="pseudo"]').value;
+            let password = document.querySelector('input[name="password"]').value;
+    
+            let response = await fetch('http://localhost:3000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    pseudo,
+                    password
+                })
+            });
+            
+            if (response.status === 200) {
+                let data = await response.json();
+                localStorage.setItem('token', data);
+                window.location.href = "chart.html";
+            } else {
+                // Afficher un message d'erreur
+                alert('Erreur : utilisateur non trouvé.');
+            }
+        }
+
+    </script>
+</body>
+</html>

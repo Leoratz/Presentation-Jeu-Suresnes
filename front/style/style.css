@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mulish", sans-serif;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 84px; 
+    padding: 25px 20%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    
+    li {
+        margin-inline: 1rem;
+        font-size: 18px;
+        font-weight: 800;
+        
+        list-style: none;
+        text-decoration: none;
+
+        a {
+            text-decoration: none;
+            color: #1d1d4d;
+            transition: all 0.3s;
+
+            &:hover {
+                color: #007bff;
+                text-decoration: underline #cf2e2e;
+                text-decoration-thickness: 3px;
+                text-underline-position: under;
+            }
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+
+}
+
+button {
+    margin-inline: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 18px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: #1d1d4d;
+    }
+}
+
+
+section {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 20%;
+    
+
+    h2 {
+        align-self: center;
+        font-size: 32px;
+        font-weight: 800;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: #1d1d4d;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 35px;
+        color: #1d1d4d;
+
+        text-decoration: underline;
+        text-underline-position: under;
+    }
+
+    p {
+        font-size: 18px;
+        font-weight: 400;
+        padding: 20px 0px;
+        color: #1d1d4d;
+        line-height: 1.7rem;
+    }
+}
+
+#jeu {
+    video {
+        height: auto;
+        border-radius: 10px;
+        align-self: center;
+    }
+}
+
+#ville {
+    background-image: url("../img/post-bg.png");
+
+    .infos {
+        display: flex;
+        justify-content: space-between;
+        
+        margin: 30px 0px;
+
+        p {
+            padding: 10px 0px;
+        }
+    }
+}
+
+.nav-btn {
+    display: none;
+}
+
+.nav-list {
+    display: none;
+}
+
+.nav-list > li {
+    list-style-type: none;
+    text-align: center;
+}
+
+.nav-list > li a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+#nav-check {
+    display: none;
+}
+
+
+@media (max-width: 728px) {
+
+    ul {
+        display: none;
+    }
+    .buttons {
+        display: none;
+    }
+    .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        padding-top: 0.2rem;
+    }
+    .nav-btn > label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+    .nav-btn > label > span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #1d1d4d;
+    }
+
+    .nav-list {
+        position: absolute;
+        display: flex;
+        
+        flex-direction: column;
+        
+        width: 100%;
+        background-color: #1d1d4d;
+        height: 0;
+        transition: all 0.3s ease-in;
+        top: 85px;
+        left: 0;
+        overflow: hidden;
+    }
+    .nav-list > li {
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+    #nav-check:checked ~ .nav-list {
+        height: 180px;
+    }
+
+    .nav-list button {
+        margin-top: 20px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 25px 10%;
+    }
+
+    nav img {
+        content: url("../img/logo suresnes 2.png");
+        
+    }
+
+    section {
+        padding: 20px 5%;
+    }
+
+    #jeu {
+        video {
+            width: 100%;
+        }
+    }
+
+    #ville {
+        .infos {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            margin: 30px 0px;
+
+            iframe {
+                width: 100%;
+                height: 300px;
+                border-radius: 10px;
+            }
+
+            p {
+                padding: 10px 0px;
+            }
+        }
+    }
+    
+}

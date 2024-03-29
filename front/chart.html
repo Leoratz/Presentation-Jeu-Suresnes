@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back Office - Graphiques</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../public/data.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+  * {
+    box-sizing: border-box;
+    font-family: "Mulish", sans-serif;
+  }
+  .graphiques-container {
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  h2 {
+      text-align: center;
+    }
+
+  .graphique {
+    flex: 1 1 400px; 
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 380px;
+    height: auto;
+  }
+
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .graphique-petit {
+    flex: 0 0 380px; 
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  button {
+    font-size: 16px;
+    margin-inline: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 18px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: #1d1d4d;
+    }
+  }
+  
+
+  .graphique-petit canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40px 0 40px;
+    border-bottom: solid rgba(197, 195, 195, 0.466);
+  }
+
+  @media screen and (max-width: 1120px) {
+    .graphique {
+      min-width: 55%; 
+    }
+  }
+
+  @media screen and (max-width: 465px) {
+    .title {
+      flex-direction: column;
+      align-items: center;
+    }
+    .graphiques-container {
+      width: 100%;
+    }
+    .graphique {
+      min-width: 100%;
+    }
+    h2{
+      font-size: 22px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+  <div class="title">
+    <h2>Statistiques - Graphiques des Questions</h2>
+    <button onclick="window.location.href = `login.html`">Inscription</button>
+  </div>
+  <div class="graphiques-container">
+      <div class="graphique">
+        <h2>Es tu content d'aller à l'école ?</h2>
+        <canvas id="graphiqueQuestion1"></canvas>
+      </div>
+      <div class="graphique-petit">
+        <h2>As-tu peur d'aller à l'école ?</h2>
+        <canvas id="graphiqueQuestion2"></canvas>
+      </div>
+      <div class="graphique-petit">
+        <h2>Te fais-tu embêter ?</h2>
+        <canvas id="graphiqueQuestion3"></canvas>
+      </div>
+      <div class="graphique">
+        <h2>As-tu confiance dans les adultes que tu vois pendant la journée ?</h2>
+        <canvas id="graphiqueQuestion4"></canvas>
+  
+      <div class="graphique">
+        <h2>Comment te sens tu ?</h2>
+        <canvas id="graphiqueQuestion5"></canvas>
+
+  </div>
+
+    
+
+  <script>
+    function creerGraphique(idCanvas, donneesQuestion, titre, type, couleurs) {
+        var ctx = document.getElementById(idCanvas).getContext('2d');
+        new Chart(ctx, {
+            type: type, // Type dynamique de graphique
+            data: {
+                labels: ['Oui', 'Non'],
+                datasets: [{
+                    label: titre,
+                    data: donneesQuestion,
+                    backgroundColor: couleurs.background,
+                    borderColor: couleurs.border,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+
+    const stylesCouleurs = [
+      {background: ['rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)'], border: ['rgba(255, 99, 132, 1)', 'rgba(255, 159, 64, 1)']},
+      {background: ['rgba(54, 162, 235, 0.2)', 'rgba(75, 192, 192, 0.2)'], border: ['rgba(54, 162, 235, 1)', 'rgba(75, 192, 192, 1)']},
+    ];
+
+    creerGraphique('graphiqueQuestion1', Question1, 'Question 1', 'bar', stylesCouleurs[0]);
+    creerGraphique('graphiqueQuestion2', Question2, 'Question 2', 'pie', stylesCouleurs[1]);
+    creerGraphique('graphiqueQuestion3', Question3, 'Question 3', 'doughnut', stylesCouleurs[0]);
+    creerGraphique('graphiqueQuestion4', Question4, 'Question 4', 'line', stylesCouleurs[1]);
+    creerGraphique('graphiqueQuestion5', Question5, 'Question 5', 'bar', stylesCouleurs[0]);
+
+  </script>
+
+  <script>
+    let token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = 'login.html';
+    }
+    
+  </script>
+
+</body>
+</html>

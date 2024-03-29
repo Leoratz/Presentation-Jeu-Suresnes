@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suresnes</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <nav>
+        <img src="img/logo-header.png" alt="logo suresnes">
+        <ul>
+            <li><a href="#jeu">LE JEU</a></li>
+            <li><a href="#ville">LA VILLE DE SURESNES</a></li>
+        </ul>
+        <ul class="buttons">
+            <button onclick="window.location.href = `login.html`">CONNEXION</button>
+        </ul>
+        <input type="checkbox" id="nav-check">
+        <div class="nav-btn">
+            <label for="nav-check">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+        </div>
+          
+        <ul class="nav-list">
+            <li><a href="#jeux">Le jeu</a></li>
+            <li><a href="#ville">La ville de Suresnes</a></li>
+            <button onclick="window.location.href = `login.html`">CONNEXION</button>
+        </ul>
+    </nav>
+
+    <section id="jeu">
+        <h2>Trace de Pattes 🐾</h1>
+        <video src="video/video-exemple.mp4" controls width="700"></video>
+        <h3>La présentation du jeu :</h3>
+        <p>"Trace de Pattes" est un visual novel, un genre de jeu qui nous plonge dans une histoire interactive à travers du texte. Dans ce jeu, nous incarnons un petit animal de notre choix durant son enfance, vivant une journée typique pour les enfants de son âge : l'école, les amis, les cours, la récréation... À travers les aventures de cet animal, se dessinent les tourments de l'enfant qui le contrôle. A-t-il des amis ? Est-il victime de moqueries à l'école ? Éprouve-t-il de la peur à y aller ? Derrière ce jeu ludique et captivant pour les enfants se cache un sujet délicat : le harcèlement. Appréhender la vie d'un enfant à l'école n'est pas une tâche aisée, surtout lorsqu'il refuse de parler de ce qui s'y déroule. "Trace de Pattes" a été conçu pour recueillir les sentiments des enfants de Suresnes au cours de leur journée, afin de prendre des mesures appropriées en conséquence.</p>
+    </section>
+
+    <section id="ville">
+        <h2>La ville de Suresnes</h2>
+        <div class="infos">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10497.311594705037!2d2.2079887219757333!3d48.87102538942645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e664c5b40ecee7%3A0x40b82c3688b3ce0!2s92150%20Suresnes!5e0!3m2!1sfr!2sfr!4v1711530339836!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="contacts">
+                <h3>Contacts :</h3>
+                <p>Adresse : 2 rue Carnot, 92150 Suresnes</p>
+                <p>Téléphone : 01 41 18 37 37</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

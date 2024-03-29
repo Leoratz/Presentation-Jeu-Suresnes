@@ -1,0 +1,25 @@
+{
+  "name": "bap-dashboard",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch main.js",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.11.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "chart.js": "^4.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-jwt": "^8.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^5.11.0"
+  }
+}

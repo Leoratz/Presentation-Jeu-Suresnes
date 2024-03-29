@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/signup.css">
+</head>
+<body>
+    <img src="img/logo suresnes 2.png" alt="logo suresnes">
+    <div class="inscription">
+        <h1>Espace inscription administrateur</h1>
+        <label for="pseudo">Nom d'identifiant</label>
+        <input type="text" name="pseudo">
+    
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password">
+    
+        <button type="button" onclick="signup()">S'inscrire</button>
+    </div>
+
+    <script>
+        const signup = async () => {
+            let pseudo = document.querySelector('input[name="pseudo"]').value;
+            let password = document.querySelector('input[name="password"]').value;
+
+            let response = await fetch('http://localhost:3000/auth/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    pseudo: pseudo,
+                    password: password
+                })
+            });
+
+            let data = await response.json()
+            localStorage.setItem('token', data)
+            window.location.href = "index.html"
+        }
+
+        let token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+    
+    </script>
+</body>
+</html>
