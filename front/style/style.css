@@ -46,6 +46,10 @@ ul {
     }
 }
 
+.contacts {
+    margin-left: 20px;
+}
+
 .buttons {
     display: flex;
     align-items: center;
@@ -148,6 +152,11 @@ section {
 
 #nav-check {
     display: none;
+}
+
+iframe {
+    border-radius: 10px;
+
 }
 
 
