@@ -26,3 +26,4 @@ dist-ssr
 # Personal files
 node_modules
 .env
+credentials.json
